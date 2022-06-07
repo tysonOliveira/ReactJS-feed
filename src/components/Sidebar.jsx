@@ -8,7 +8,7 @@ export function Sidebar() {
       <img className={styles.cover} src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=550&q=50" />
 
       <div className={styles.profile} > 
-        <img src="https://github.com/tysonOliveira.png" />
+        <img className={styles.avatar} src="https://github.com/tysonOliveira.png" />
 
         <strong>Tyson Oliveira</strong>
         <span>Web Developer</span>
