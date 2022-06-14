@@ -6,6 +6,45 @@ import styles from './App.module.css';
 
 import './global.css';
 
+// author: { avatar_url: "", name: "", role: "" }
+// publishedAt: Date
+// content: String
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/tysonOliveira.png',
+      name: 'Tyson Oliveira',
+      role: 'Web developer'
+    },
+    // Aqui é importante não enviar HTML do back-end para aumentar a segurança
+    // do contrario algum usuário mau intencionando poderia usar essa vulnerabilidade
+    content: [
+      { type: 'paragraph', content: 'Fala galera' }, 
+       { type: 'a Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut cum dolore totam iusto animi hic laboriosam' }, 
+      { type: 'Link', content: 'Developer/javaScript' },   
+    ],
+    publishedAt: new Date('2022-06-9 20:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educator @Rocketseat'
+    },
+    // Aqui é importante não enviar HTML do back-end para aumentar a segurança
+    // do contrario algum usuário mau intencionando poderia usar essa vulnerabilidade
+    content: [
+      { type: 'paragraph', content: 'Fala galera' }, 
+       { type: 'a Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut cum dolore totam iusto animi hic laboriosam' }, 
+      { type: 'Link', content: 'Developer/javaScript' },   
+    ],
+    publishedAt: new Date('2022-06-10 18:00'),
+  },
+];
+
 export function App() {
   return (
     <div>
@@ -16,14 +55,16 @@ export function App() {
           <Sidebar />
         </aside>
         <main>
-          <Post
-            author="Tyson Oliveira"
-            content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur pariatur quos ea dolorum! Laboriosam, ex iusto, quidem amet totam molestiae accusamus eius ab, earum ipsa consectetur expedita at? Consequuntur, expedita?"
-          />
-          <Post
-            author="Oliveira"
-            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa tenetur excepturi, incidunt placeat harum voluptatibus deleniti enim. Ipsam, facere qui cum magnam aliquid aliquam corporis dolore pariatur sed officiis. Hic."
-          />
+          {posts.map(post => {
+            return (
+              <Post 
+                key={ post.id }
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>    
       </div>
     </div>
