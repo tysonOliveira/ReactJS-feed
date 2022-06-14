@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale/pt-BR'
+import ptBR from 'date-fns/locale/pt-BR'
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
