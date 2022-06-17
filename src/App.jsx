@@ -22,7 +22,7 @@ const posts = [
     // do contrario algum usuário mau intencionando poderia usar essa vulnerabilidade
     content: [
       { type: 'paragraph', content: 'Fala galera' }, 
-       { type: 'a Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut cum dolore totam iusto animi hic laboriosam' }, 
+       { type: 'paragraph', content: 'a Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut cum dolore totam iusto animi hic laboriosam' }, 
       { type: 'Link', content: 'Developer/javaScript' },   
     ],
     publishedAt: new Date('2022-06-9 20:00'),
@@ -58,7 +58,7 @@ export function App() {
           {posts.map(post => {
             return (
               <Post 
-                key={ post.id }
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
