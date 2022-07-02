@@ -25,7 +25,7 @@ const posts = [
        { type: 'paragraph', content: 'a Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut cum dolore totam iusto animi hic laboriosam' }, 
       { type: 'Link', content: 'Developer/javaScript' },   
     ],
-    publishedAt: new Date('2022-06-9 20:00'),
+    publishedAt: new Date('2022-06-9 20:00:00'),
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ export function App() {
           <Sidebar />
         </aside>
         <main>
-          {posts.map(post => {
+        {posts.map(post => {
             return (
               <Post 
                 key={post.id}
