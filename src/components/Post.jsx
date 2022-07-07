@@ -49,7 +49,6 @@ export function Post({ author, publishedAt, content }) {
   // Monitora se é digitado algo dentro da textarea
   function handleNewCommentChange(event) {
     setNewCommentText(event.target.value);
-
   }
 
   return (
