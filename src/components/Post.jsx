@@ -49,7 +49,15 @@ export function Post({ author, publishedAt, content }) {
   // Monitora se é digitado algo dentro da textarea
   function handleNewCommentChange(event) {
     setNewCommentText(event.target.value);
+  }
 
+  function deleteComment(commentToDelete) {
+    // Usa o método filter para remover um comentário
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete;
+    })
+
+    setComments(commentsWithoutDeletedOne);
   }
 
   return (
@@ -87,6 +95,8 @@ export function Post({ author, publishedAt, content }) {
           placeholder='Deixe um comentário' 
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={}
+          required
         />
 
         <footer>
@@ -96,7 +106,7 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={styles.commentList} >
         {comments.map(comment => {
-          return <Comment key={comment} content={comment} />
+          return <Comment key={comment} content={comment} onDeleteComment={deleteComment} />
         })}
       </div>
     </article>
