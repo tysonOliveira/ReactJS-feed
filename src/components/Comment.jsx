@@ -6,7 +6,7 @@ export function Comment({content, onDeleteComment}) {
   function handleDeleteComment() {
     console.log('deletar');
 
-    onDeleteComment(content);
+    onDeleteComment(content);//54454
   }
 
   return (

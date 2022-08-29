@@ -49,8 +49,7 @@ export function Post({ author, publishedAt, content }) {
   // Monitora se é digitado algo dentro da textarea
   function handleNewCommentChange(event) {
     setNewCommentText(event.target.value);
-<<<<<<< HEAD
-=======
+
   }
 
   function deleteComment(commentToDelete) {
@@ -60,7 +59,7 @@ export function Post({ author, publishedAt, content }) {
     })
 
     setComments(commentsWithoutDeletedOne);
->>>>>>> current
+
   }
 
   return (
@@ -98,7 +97,7 @@ export function Post({ author, publishedAt, content }) {
           placeholder='Deixe um comentário' 
           value={newCommentText}
           onChange={handleNewCommentChange}
-          onInvalid={}
+          
           required
         />
 
