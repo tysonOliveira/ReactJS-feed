@@ -50,10 +50,13 @@ export function Post({ author, publishedAt, content }) {
 
   // Monitora se é digitado algo dentro da textarea
   function handleNewCommentChange(event) {
+    // Define uma string vazia para indicar que o usuário digitou algo e já pode publicar a mensagem
     event.target.setCustomValidity('');
+
     setNewCommentText(event.target.value);
   }
 
+  // Mostra uma mensagem caso o usuário tente publicar uma mensagem em branco
   function handleNewCommentInvalid() {
     event.target.setCustomValidity('Esse campo é obrigatório');
   }
@@ -69,6 +72,9 @@ export function Post({ author, publishedAt, content }) {
     setComments(commentsWithoutDeletedOne);
 
   }
+
+  // Testa se existe algo na textarea
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}> 
@@ -110,7 +116,7 @@ export function Post({ author, publishedAt, content }) {
         />
 
         <footer>
-          <button type='submit'>Publicar</button>
+          <button type='submit' disabled={isNewCommentEmpty} >Publicar</button>
         </footer>
       </form>
 
