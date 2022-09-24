@@ -16,6 +16,8 @@ export function Post({ author, publishedAt, content }) {
     'Post muito bacana'
   ]);
 
+  // É importante sempre inicializarmos o estado com uma informação do mesmo tipo que vamos armazenar posteriormente
+  // No caso abaixo como vamos inserir texto então inicializamos com: ''
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -48,16 +50,22 @@ export function Post({ author, publishedAt, content }) {
 
   // Monitora se é digitado algo dentro da textarea
   function handleNewCommentChange(event) {
+    event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
+  }
 
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity('Esse campo é obrigatório');
   }
 
   function deleteComment(commentToDelete) {
     // Usa o método filter para remover um comentário
+    // retorna um novo array sem o comentario contido no commentToDelete
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete;
     })
 
+    // Adiciona o novo array recebido do filter
     setComments(commentsWithoutDeletedOne);
 
   }
@@ -97,7 +105,7 @@ export function Post({ author, publishedAt, content }) {
           placeholder='Deixe um comentário' 
           value={newCommentText}
           onChange={handleNewCommentChange}
-          
+          onInvalid={handleNewCommentInvalid} 
           required
         />
 
@@ -114,4 +122,3 @@ export function Post({ author, publishedAt, content }) {
     </article>
   )
 }
-
